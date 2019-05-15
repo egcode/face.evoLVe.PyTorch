@@ -16,6 +16,10 @@ import os
 import sys
 from pdb import set_trace as bp
 
+
+####   backbone_ir50_ms1m_epoch120.pth   LFW Acc: 0.9984999999999999
+
+
 if __name__ == '__main__':
 
     DATA_ROOT = '/Users/eugene/Documents/Developer/Computer-Vision-Python/evoLVe_data/data' # the parent root where your train/val/test data are stored
