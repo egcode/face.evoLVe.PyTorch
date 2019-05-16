@@ -25,7 +25,7 @@ if __name__ == '__main__':
 
     DATA_ROOT = '/Users/eugene/Documents/Developer/Computer-Vision-Python/evoLVe_data/data' # the parent root where your train/val/test data are stored
     INPUT_SIZE = [112, 112] # support: [112, 112] and [224, 224]
-BACKBONE_RESUME_ROOT = '/Users/eugene/Documents/Developer/Computer-Vision-Python/evoLVe_data/pth/backbone_ir50_ms1m_epoch120.pth' # the root to resume training from a saved checkpoint
+    BACKBONE_RESUME_ROOT = '/Users/eugene/Documents/Developer/Computer-Vision-Python/evoLVe_data/pth/backbone_ir50_ms1m_epoch120.pth' # the root to resume training from a saved checkpoint
 
     MULTI_GPU = False# flag to use multiple GPUs; if you choose to train with single GPU, you should first run "export CUDA_VISILE_DEVICES=device_id" to specify the GPU card you want to use
     DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -34,12 +34,12 @@ BACKBONE_RESUME_ROOT = '/Users/eugene/Documents/Developer/Computer-Vision-Python
 
 
     # lfw, lfw_issame = get_val_pair(DATA_ROOT, 'lfw')
-    calfw, calfw_issame = get_val_pair(DATA_ROOT, 'calfw')
-    # cfp_ff, cfp_ff_issame = get_val_pair(DATA_ROOT, 'cfp_ff')
-    # cfp_fp, cfp_fp_issame = get_val_pair(DATA_ROOT, 'cfp_fp')
-    # agedb_30, agedb_30_issame = get_val_pair(DATA_ROOT, 'agedb_30')
-    # cplfw, cplfw_issame = get_val_pair(DATA_ROOT, 'cplfw')
-    # vgg2_fp, vgg2_fp_issame = get_val_pair(DATA_ROOT, 'vgg2_fp')
+    # calfw, calfw_issame = get_val_pair(DATA_ROOT, 'calfw')
+    cplfw, cplfw_issame = get_val_pair(DATA_ROOT, 'cplfw')
+    cfp_ff, cfp_ff_issame = get_val_pair(DATA_ROOT, 'cfp_ff')
+    cfp_fp, cfp_fp_issame = get_val_pair(DATA_ROOT, 'cfp_fp')
+    agedb_30, agedb_30_issame = get_val_pair(DATA_ROOT, 'agedb_30')
+    vgg2_fp, vgg2_fp_issame = get_val_pair(DATA_ROOT, 'vgg2_fp')
 
     BACKBONE = IR_50(INPUT_SIZE)
 
@@ -53,26 +53,42 @@ BACKBONE_RESUME_ROOT = '/Users/eugene/Documents/Developer/Computer-Vision-Python
     print("=" * 60)
     print("Performing Evaluation on LFW, CFP_FF, CFP_FP, AgeDB, CALFW, CPLFW and VGG2_FP, and Save Checkpoints...")
 
-    #### LFW WORKS
+    #### LFW
     # print("Performing Evaluation on LFW...")
     # accuracy_lfw, best_threshold_lfw, roc_curve_lfw = perform_val(MULTI_GPU, DEVICE, EMBEDDING_SIZE, BATCH_SIZE, BACKBONE, lfw, lfw_issame)
     # print("Evaluation: LFW Acc: {}".format(accuracy_lfw))
 
-    #### CALFW WORKS
-    print("Performing Evaluation on CALFW...")
-    accuracy_calfw, best_threshold_calfw, roc_curve_calfw = perform_val(MULTI_GPU, DEVICE, EMBEDDING_SIZE, BATCH_SIZE, BACKBONE, calfw, calfw_issame)
-    print("Evaluation: CALFW Acc: {}".format(accuracy_calfw))
-
-
-
-
-    # accuracy_cfp_ff, best_threshold_cfp_ff, roc_curve_cfp_ff = perform_val(MULTI_GPU, DEVICE, EMBEDDING_SIZE, BATCH_SIZE, BACKBONE, cfp_ff, cfp_ff_issame)
-    # accuracy_cfp_fp, best_threshold_cfp_fp, roc_curve_cfp_fp = perform_val(MULTI_GPU, DEVICE, EMBEDDING_SIZE, BATCH_SIZE, BACKBONE, cfp_fp, cfp_fp_issame)
-    # accuracy_agedb, best_threshold_agedb, roc_curve_agedb = perform_val(MULTI_GPU, DEVICE, EMBEDDING_SIZE, BATCH_SIZE, BACKBONE, agedb, agedb_issame)
+    # #### CALFW WORKS
+    # print("Performing Evaluation on CALFW...")
     # accuracy_calfw, best_threshold_calfw, roc_curve_calfw = perform_val(MULTI_GPU, DEVICE, EMBEDDING_SIZE, BATCH_SIZE, BACKBONE, calfw, calfw_issame)
-    # accuracy_cplfw, best_threshold_cplfw, roc_curve_cplfw = perform_val(MULTI_GPU, DEVICE, EMBEDDING_SIZE, BATCH_SIZE, BACKBONE, cplfw, cplfw_issame)
-    # accuracy_vgg2_fp, best_threshold_vgg2_fp, roc_curve_vgg2_fp = perform_val(MULTI_GPU, DEVICE, EMBEDDING_SIZE, BATCH_SIZE, BACKBONE, vgg2_fp, vgg2_fp_issame)
+    # print("Evaluation: CALFW Acc: {}".format(accuracy_calfw))
+
+    #### CPLFW
+    print("Performing Evaluation on CPLFW...")
+    accuracy_cplfw, best_threshold_calfw, roc_curve_calfw = perform_val(MULTI_GPU, DEVICE, EMBEDDING_SIZE, BATCH_SIZE, BACKBONE, cplfw, cplfw_issame)
+    print("Evaluation: CPLFW Acc: {}".format(accuracy_cplfw))
+
+    #### CFP-FF
+    print("Performing Evaluation on CFP-FF...")
+    accuracy_cfp_ff, best_threshold_cfp_ff, roc_curve_cfp_ff = perform_val(MULTI_GPU, DEVICE, EMBEDDING_SIZE, BATCH_SIZE, BACKBONE, cfp_ff, cfp_ff_issame)
+    print("Evaluation: CFP-FF Acc: {}".format(accuracy_cfp_ff))
+
+    #### CFP-FP
+    print("Performing Evaluation on CFP-FP...")
+    accuracy_cfp_fp, best_threshold_cfp_fp, roc_curve_cfp_fp = perform_val(MULTI_GPU, DEVICE, EMBEDDING_SIZE, BATCH_SIZE, BACKBONE, cfp_fp, cfp_fp_issame)
+    print("Evaluation: CFP-FP Acc: {}".format(accuracy_cfp_fp))
+
+    #### AgeDB_30
+    print("Performing Evaluation on AgeDB_30...")
+    accuracy_agedb, best_threshold_agedb, roc_curve_agedb = perform_val(MULTI_GPU, DEVICE, EMBEDDING_SIZE, BATCH_SIZE, BACKBONE, agedb_30, agedb_30_issame)
+    print("Evaluation: AgeDB_30 Acc: {}".format(accuracy_agedb))
+
+    #### VggFace2_FP
+    print("Performing Evaluation on VggFace2_FP...")
+    accuracy_vgg2_fp, best_threshold_vgg2_fp, roc_curve_vgg2_fp = perform_val(MULTI_GPU, DEVICE, EMBEDDING_SIZE, BATCH_SIZE, BACKBONE, vgg2_fp, vgg2_fp_issame)
+    print("Evaluation: VggFace2_FP Acc: {}".format(accuracy_vgg2_fp))
+    
     print("=" * 60)
-    print("FINAL RESULTS:")
+    # print("FINAL RESULTS:")
     # print("Epoch {}/{}, Evaluation: LFW Acc: {}, CFP_FF Acc: {}, CFP_FP Acc: {}, AgeDB Acc: {}, CALFW Acc: {}, CPLFW Acc: {}, VGG2_FP Acc: {}".format(epoch + 1, NUM_EPOCH, accuracy_lfw, accuracy_cfp_ff, accuracy_cfp_fp, accuracy_agedb, accuracy_calfw, accuracy_cplfw, accuracy_vgg2_fp))
-    print("=" * 60)
+    # print("=" * 60)
