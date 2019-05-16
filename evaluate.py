@@ -19,6 +19,11 @@ from pdb import set_trace as bp
 
 ####   backbone_ir50_ms1m_epoch120.pth   LFW Acc: 0.9984999999999999
 ####   backbone_ir50_ms1m_epoch120.pth CALFW Acc: 0.9578333333333331
+####   backbone_ir50_ms1m_epoch120.pth CPLFW Acc: 0.9223333333333332
+####   backbone_ir50_ms1m_epoch120.pth CFP-FF Acc: 0.9972857142857142
+####   backbone_ir50_ms1m_epoch120.pth CFP-FP Acc: 0.9811428571428571
+####   backbone_ir50_ms1m_epoch120.pth AgeDB_30 Acc: 0.9773333333333334
+####   backbone_ir50_ms1m_epoch120.pth VggFace2_FP Acc: 0.9518000000000001
 
 
 if __name__ == '__main__':
