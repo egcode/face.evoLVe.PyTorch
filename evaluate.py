@@ -52,16 +52,16 @@ if __name__ == '__main__':
     print("Performing Evaluation on LFW, CFP_FF, CFP_FP, AgeDB, CALFW, CPLFW and VGG2_FP, and Save Checkpoints...")
 
     #### LFW
-    # print("Performing Evaluation on LFW...")
-    # lfw, lfw_issame = get_val_pair(DATA_ROOT, 'lfw')
-    # accuracy_lfw, best_threshold_lfw, roc_curve_lfw = perform_val(MULTI_GPU, DEVICE, EMBEDDING_SIZE, BATCH_SIZE, BACKBONE, lfw, lfw_issame)
-    # print("Evaluation: LFW Acc: {}".format(accuracy_lfw))
+    print("Performing Evaluation on LFW...")
+    lfw, lfw_issame = get_val_pair(DATA_ROOT, 'lfw')
+    accuracy_lfw, best_threshold_lfw, roc_curve_lfw = perform_val(MULTI_GPU, DEVICE, EMBEDDING_SIZE, BATCH_SIZE, BACKBONE, lfw, lfw_issame)
+    print("Evaluation: LFW Acc: {}".format(accuracy_lfw))
 
-    # #### CALFW WORKS
-    # print("Performing Evaluation on CALFW...")
-    # calfw, calfw_issame = get_val_pair(DATA_ROOT, 'calfw')
-    # accuracy_calfw, best_threshold_calfw, roc_curve_calfw = perform_val(MULTI_GPU, DEVICE, EMBEDDING_SIZE, BATCH_SIZE, BACKBONE, calfw, calfw_issame)
-    # print("Evaluation: CALFW Acc: {}".format(accuracy_calfw))
+    #### CALFW WORKS
+    print("Performing Evaluation on CALFW...")
+    calfw, calfw_issame = get_val_pair(DATA_ROOT, 'calfw')
+    accuracy_calfw, best_threshold_calfw, roc_curve_calfw = perform_val(MULTI_GPU, DEVICE, EMBEDDING_SIZE, BATCH_SIZE, BACKBONE, calfw, calfw_issame)
+    print("Evaluation: CALFW Acc: {}".format(accuracy_calfw))
 
     #### CPLFW
     print("Performing Evaluation on CPLFW...")
@@ -94,6 +94,6 @@ if __name__ == '__main__':
     print("Evaluation: VggFace2_FP Acc: {}".format(accuracy_vgg2_fp))
     
     print("=" * 60)
-    # print("FINAL RESULTS:")
-    # print("Epoch {}/{}, Evaluation: LFW Acc: {}, CFP_FF Acc: {}, CFP_FP Acc: {}, AgeDB Acc: {}, CALFW Acc: {}, CPLFW Acc: {}, VGG2_FP Acc: {}".format(epoch + 1, NUM_EPOCH, accuracy_lfw, accuracy_cfp_ff, accuracy_cfp_fp, accuracy_agedb, accuracy_calfw, accuracy_cplfw, accuracy_vgg2_fp))
-    # print("=" * 60)
+    print("FINAL RESULTS:")
+    print("Epoch {}/{}, Evaluation: LFW Acc: {}, CFP_FF Acc: {}, CFP_FP Acc: {}, AgeDB Acc: {}, CALFW Acc: {}, CPLFW Acc: {}, VGG2_FP Acc: {}".format(epoch + 1, NUM_EPOCH, accuracy_lfw, accuracy_cfp_ff, accuracy_cfp_fp, accuracy_agedb, accuracy_calfw, accuracy_cplfw, accuracy_vgg2_fp))
+    print("=" * 60)
