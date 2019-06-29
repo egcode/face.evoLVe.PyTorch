@@ -28,9 +28,9 @@ from pdb import set_trace as bp
 
 if __name__ == '__main__':
 
-    DATA_ROOT = '/Users/eugene/Documents/Developer/Computer-Vision-Python/evoLVe_data/data' # the parent root where your train/val/test data are stored
+    DATA_ROOT = './../evoLVe_data/data' # the parent root where your train/val/test data are stored
     INPUT_SIZE = [112, 112] # support: [112, 112] and [224, 224]
-    BACKBONE_RESUME_ROOT = '/Users/eugene/Documents/Developer/Computer-Vision-Python/evoLVe_data/pth/backbone_ir50_ms1m_epoch120.pth' # the root to resume training from a saved checkpoint
+    BACKBONE_RESUME_ROOT = './../evoLVe_data/pth/backbone_ir50_ms1m_epoch120.pth' # the root to resume training from a saved checkpoint
 
     MULTI_GPU = False# flag to use multiple GPUs; if you choose to train with single GPU, you should first run "export CUDA_VISILE_DEVICES=device_id" to specify the GPU card you want to use
     DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
