@@ -25,11 +25,11 @@ from pdb import set_trace as bp
 ####   backbone_ir50_ms1m_epoch120.pth AgeDB_30 Acc: 0.9773333333333334
 ####   backbone_ir50_ms1m_epoch120.pth VggFace2_FP Acc: 0.9518000000000001
 
-####   IR_50_MODEL_arcface_vgg2_epoch32.pth  LFW Acc: 0.9836666666666666
-####   IR_50_MODEL_arcface_vgg2_epoch32.pth  CALFW Acc: 0.86
-####   IR_50_MODEL_arcface_vgg2_epoch32.pth  CPLFW Acc: 0.8711666666666668
-####   IR_50_MODEL_arcface_vgg2_epoch32.pth  CFP-FF Acc: 0.9797142857142855
-####   IR_50_MODEL_arcface_vgg2_epoch32.pth  CFP-FP Acc: 0.9644285714285713
+####   IR_50_MODEL_arcface_vgg2_epoch32.pth  LFW Acc: 
+####   IR_50_MODEL_arcface_vgg2_epoch32.pth  CALFW Acc: 
+####   IR_50_MODEL_arcface_vgg2_epoch32.pth  CPLFW Acc: 
+####   IR_50_MODEL_arcface_vgg2_epoch32.pth  CFP-FF Acc: 
+####   IR_50_MODEL_arcface_vgg2_epoch32.pth  CFP-FP Acc: 
 ####   IR_50_MODEL_arcface_vgg2_epoch32.pth  AgeDB_30 Acc: 
 ####   IR_50_MODEL_arcface_vgg2_epoch32.pth  VggFace2_FP Acc: 
 
