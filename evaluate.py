@@ -38,7 +38,7 @@ from pdb import set_trace as bp
 EXAMPLE:
 python3 validate.py  \
 --model_path ./../pytorch-face/pth/IR_50_MODEL_arcface_casia_epoch56_lfw9925.pth \
---data_root ./../evoLVe_data/data \
+--data_root ./DATA/data \
 --model_type IR_50 \
 --num_workers 8 \
 --batch_size 100
