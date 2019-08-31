@@ -11,6 +11,7 @@ from head.metrics import ArcFace, CosFace, SphereFace, Am_softmax
 from loss.focal import FocalLoss
 from util.utils import make_weights_for_balanced_classes, get_val_data, separate_irse_bn_paras, separate_resnet_bn_paras, warm_up_lr, schedule_lr, perform_val, get_time, buffer_val, AverageMeter, accuracy, get_val_pair
 
+import argparse
 from tqdm import tqdm
 import os
 import sys
@@ -25,21 +26,34 @@ from pdb import set_trace as bp
 ####   backbone_ir50_ms1m_epoch120.pth AgeDB_30 Acc: 0.9773333333333334
 ####   backbone_ir50_ms1m_epoch120.pth VggFace2_FP Acc: 0.9518000000000001
 
-####   IR_50_MODEL_arcface_vgg2_epoch32.pth  LFW Acc: 
-####   IR_50_MODEL_arcface_vgg2_epoch32.pth  CALFW Acc: 
-####   IR_50_MODEL_arcface_vgg2_epoch32.pth  CPLFW Acc: 
-####   IR_50_MODEL_arcface_vgg2_epoch32.pth  CFP-FF Acc: 
-####   IR_50_MODEL_arcface_vgg2_epoch32.pth  CFP-FP Acc: 
-####   IR_50_MODEL_arcface_vgg2_epoch32.pth  AgeDB_30 Acc: 
-####   IR_50_MODEL_arcface_vgg2_epoch32.pth  VggFace2_FP Acc: 
+####   IR_50_MODEL_arcface_casia_epoch56_lfw9925.pth  LFW Acc: 
+####   IR_50_MODEL_arcface_casia_epoch56_lfw9925.pth  CALFW Acc: 
+####   IR_50_MODEL_arcface_casia_epoch56_lfw9925.pth  CPLFW Acc: 
+####   IR_50_MODEL_arcface_casia_epoch56_lfw9925.pth  CFP-FF Acc: 
+####   IR_50_MODEL_arcface_casia_epoch56_lfw9925.pth  CFP-FP Acc: 
+####   IR_50_MODEL_arcface_casia_epoch56_lfw9925.pth  AgeDB_30 Acc: 
+####   IR_50_MODEL_arcface_casia_epoch56_lfw9925.pth  VggFace2_FP Acc: 
 
+"""
+EXAMPLE:
+python3 validate.py  \
+--model_path ./pth/IR_50_MODEL_arcface_casia_epoch56_lfw9925.pth \
+--model_type IR_50 \
+--num_workers 8 \
+--batch_size 100
+"""
 
-if __name__ == '__main__':
+def main(ARGS):
+
+    if ARGS.model_path == None:
+        raise AssertionError("Path should not be None")
+    use_cuda = torch.cuda.is_available()
+    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
     DATA_ROOT = './../evoLVe_data/data' # the parent root where your train/val/test data are stored
     INPUT_SIZE = [112, 112] # support: [112, 112] and [224, 224]
     # BACKBONE_RESUME_ROOT = './../evoLVe_data/pth/backbone_ir50_ms1m_epoch120.pth' # the root to resume training from a saved checkpoint
-    BACKBONE_RESUME_ROOT = './../pytorch-face/pth/IR_50_MODEL_arcface_vgg2_epoch32.pth' # the root to resume training from a saved checkpoint
+    BACKBONE_RESUME_ROOT = './../pytorch-face/pth/IR_50_MODEL_arcface_casia_epoch56_lfw9925.pth' 
 
     MULTI_GPU = False# flag to use multiple GPUs; if you choose to train with single GPU, you should first run "export CUDA_VISILE_DEVICES=device_id" to specify the GPU card you want to use
     DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -106,3 +120,17 @@ if __name__ == '__main__':
     print("FINAL RESULTS:")
     print("Epoch {}/{}, Evaluation: LFW Acc: {}, CFP_FF Acc: {}, CFP_FP Acc: {}, AgeDB Acc: {}, CALFW Acc: {}, CPLFW Acc: {}, VGG2_FP Acc: {}".format(epoch + 1, NUM_EPOCH, accuracy_lfw, accuracy_cfp_ff, accuracy_cfp_fp, accuracy_agedb, accuracy_calfw, accuracy_cplfw, accuracy_vgg2_fp))
     print("=" * 60)
+
+
+def parse_arguments(argv):
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--model_path', type=str, help='Model weights.', default=None)
+    parser.add_argument('--model_type', type=str, help='Model type to use for training.', default='IR_50')# support: ['ResNet_50', 'ResNet_101', 'ResNet_152', 'IR_50', 'IR_101', 'IR_152', 'IR_SE_50', 'IR_SE_101', 'IR_SE_152']
+    parser.add_argument('--input_size', type=str, help='support: [112, 112] and [224, 224]', default=[112, 112])
+    parser.add_argument('--num_workers', type=int, help='Number of threads to use for data pipeline.', default=8)
+    parser.add_argument('--batch_size', type=int, help='Number of batches while validating model.', default=100)
+    return parser.parse_args(argv)
+
+
+if __name__ == '__main__':
+    main(parse_arguments(sys.argv[1:]))
