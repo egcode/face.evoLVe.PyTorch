@@ -37,7 +37,7 @@ from pdb import set_trace as bp
 """
 EXAMPLE:
 python3 evaluate.py  \
---model_path ./../pytorch-face/pth/IR_50_MODEL_arcface_casia_epoch56_lfw9925.pth \
+--model_path ./../face.recognition/pth/IR_50_MODEL_arcface_casia_epoch56_lfw9925.pth \
 --data_root ./DATA/data \
 --model_type IR_50 \
 --num_workers 8 \
