@@ -26,18 +26,42 @@ from pdb import set_trace as bp
 ####   backbone_ir50_ms1m_epoch120.pth AgeDB_30 Acc: 0.9773333333333334
 ####   backbone_ir50_ms1m_epoch120.pth VggFace2_FP Acc: 0.9518000000000001
 
-####   IR_50_MODEL_arcface_casia_epoch56_lfw9925.pth  LFW Acc: 
-####   IR_50_MODEL_arcface_casia_epoch56_lfw9925.pth  CALFW Acc: 
-####   IR_50_MODEL_arcface_casia_epoch56_lfw9925.pth  CPLFW Acc: 
-####   IR_50_MODEL_arcface_casia_epoch56_lfw9925.pth  CFP-FF Acc: 
-####   IR_50_MODEL_arcface_casia_epoch56_lfw9925.pth  CFP-FP Acc: 
-####   IR_50_MODEL_arcface_casia_epoch56_lfw9925.pth  AgeDB_30 Acc: 
-####   IR_50_MODEL_arcface_casia_epoch56_lfw9925.pth  VggFace2_FP Acc: 
+####   IR_50_MODEL_arcface_ms1celeb_epoch90_lfw9962.pth  LFW Acc:  0.9955
+####   IR_50_MODEL_arcface_ms1celeb_epoch90_lfw9962.pth  CALFW Acc:  0.9536666666666667
+####   IR_50_MODEL_arcface_ms1celeb_epoch90_lfw9962.pth  CPLFW Acc:  0.8913333333333334
+####   IR_50_MODEL_arcface_ms1celeb_epoch90_lfw9962.pth  CFP-FF Acc: 0.9961428571428572
+####   IR_50_MODEL_arcface_ms1celeb_epoch90_lfw9962.pth  CFP-FP Acc: 0.9590000000000002
+####   IR_50_MODEL_arcface_ms1celeb_epoch90_lfw9962.pth  AgeDB_30 Acc: 0.9709999999999999
+####   IR_50_MODEL_arcface_ms1celeb_epoch90_lfw9962.pth  VggFace2_FP Acc: 0.9362
+
+####   IR_50_MODEL_arcface_ms1celeb_epoch88_lfw9957.pth  LFW Acc: 0.9953333333333333
+####   IR_50_MODEL_arcface_ms1celeb_epoch88_lfw9957.pth  CALFW Acc: 0.9545
+####   IR_50_MODEL_arcface_ms1celeb_epoch88_lfw9957.pth  CPLFW Acc: 0.8891666666666665
+####   IR_50_MODEL_arcface_ms1celeb_epoch88_lfw9957.pth  CFP-FF Acc: 0.9964285714285713
+####   IR_50_MODEL_arcface_ms1celeb_epoch88_lfw9957.pth  CFP-FP Acc:  0.9548571428571428
+####   IR_50_MODEL_arcface_ms1celeb_epoch88_lfw9957.pth  AgeDB_30 Acc: 0.9719999999999999
+####   IR_50_MODEL_arcface_ms1celeb_epoch88_lfw9957.pth  VggFace2_FP Acc: 0.9353999999999999
+
+####   IR_50_MODEL_arcface_ms1celeb_epoch75_lfw996.pth  LFW Acc: 0.9956666666666667
+####   IR_50_MODEL_arcface_ms1celeb_epoch75_lfw996.pth  CALFW Acc: 0.9548333333333334
+####   IR_50_MODEL_arcface_ms1celeb_epoch75_lfw996.pth  CPLFW Acc: 0.8921666666666667
+####   IR_50_MODEL_arcface_ms1celeb_epoch75_lfw996.pth  CFP-FF Acc: 0.9962857142857142
+####   IR_50_MODEL_arcface_ms1celeb_epoch75_lfw996.pth  CFP-FP Acc: 0.9560000000000001
+####   IR_50_MODEL_arcface_ms1celeb_epoch75_lfw996.pth  AgeDB_30 Acc: 0.9698333333333334
+####   IR_50_MODEL_arcface_ms1celeb_epoch75_lfw996.pth  VggFace2_FP Acc: 0.9346
+
+####   IR_50_MODEL_arcface_ms1celeb_epoch60_lfw9958.pth  LFW Acc: 0.9956666666666667
+####   IR_50_MODEL_arcface_ms1celeb_epoch60_lfw9958.pth  CALFW Acc: 0.9533333333333334
+####   IR_50_MODEL_arcface_ms1celeb_epoch60_lfw9958.pth  CPLFW Acc: 0.8868333333333333
+####   IR_50_MODEL_arcface_ms1celeb_epoch60_lfw9958.pth  CFP-FF Acc: 0.9955714285714287
+####   IR_50_MODEL_arcface_ms1celeb_epoch60_lfw9958.pth  CFP-FP Acc: 0.9544285714285714
+####   IR_50_MODEL_arcface_ms1celeb_epoch60_lfw9958.pth  AgeDB_30 Acc: 0.9675
+####   IR_50_MODEL_arcface_ms1celeb_epoch60_lfw9958.pth  VggFace2_FP Acc: 0.9391999999999999
 
 """
 EXAMPLE:
 python3 evaluate.py  \
---model_path ./../face.recognition/pth/IR_50_MODEL_arcface_ms1celeb_epoch90_lfw9962.pth \
+--model_path ./../face.recognition/pth/IR_50_MODEL_arcface_ms1celeb_epoch60_lfw9958.pth \
 --data_root ./DATA/data \
 --model_type IR_50 \
 --num_workers 8 \
